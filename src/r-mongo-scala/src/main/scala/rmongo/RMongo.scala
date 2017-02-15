@@ -18,7 +18,8 @@ class RMongo(dbName: String, hosts: String, replica: Boolean, username: String, 
   }.toList
   val this.replica = replica
   val credential = mCreateCredential(username,dbName,pwd)
-  val m = if (!this.replica) new MongoClient(servers(0)) else new MongoClient(servers,List(credential))
+  val m = if (!this.replica) new MongoClient(servers(0)) else new MongoClient(servers,List(credential),(new MongoClientOptions.Builder().readPreference(ReadPreference.secondaryPreferred).build()))
+  m.slaveOk()
   val db = m.getDB(dbName)
   var writeConcern = WriteConcern.NORMAL
 

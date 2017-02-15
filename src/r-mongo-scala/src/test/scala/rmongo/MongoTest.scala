@@ -41,6 +41,7 @@ class MongoTest{
     assert(rMongo.dbShowCollections().contains(collectionName))
   }
 
+  /*
   @Test
   def testDbReplicaSetInsertDocument{
     clearTestDB
@@ -54,8 +55,9 @@ class MongoTest{
     val duplicateResponse = rMongo.dbInsertDocument("test_data", doc)
     var errMsg = """E11000 duplicate key error index: test.test_data.$_id_ dup key: { : "foo" }"""
     Assert.assertEquals(errMsg, duplicateResponse)
-  }
+  }*/
 
+/*
   @Test
   def testDbInsertDocument{
     clearTestDB
@@ -70,6 +72,7 @@ class MongoTest{
     var errMsg = """E11000 duplicate key error index: test.test_data.$_id_ dup key: { : "foo" }"""
     Assert.assertEquals(errMsg, duplicateResponse)
   }
+*/
 
   @Test
   def testDbRemoveQuery{

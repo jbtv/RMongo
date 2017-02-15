@@ -1,0 +1,9 @@
+currently it uses this constructor to create a MongoClient:
+https://github.com/mongodb/mongo-java-driver/blob/master/driver/src/main/com/mongodb/MongoClient.java#L230
+right here:
+https://github.com/jbtv/RMongo/blob/cba187fb1819008890327ec355d202e529acf948/src/r-mongo-scala/src/main/scala/rmongo/RMongo.scala#L21
+
+but we need to change it to use this one, which accepts a MongoClientOptions instance:
+https://github.com/mongodb/mongo-java-driver/blob/master/driver/src/main/com/mongodb/MongoClient.java#L272
+
+and also set slaveOk()
